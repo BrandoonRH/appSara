@@ -1,17 +1,15 @@
-import {useEffect} from "react";
+
 import {Link} from "react-router-dom";
 import {useCareersStore} from "../../../context/useCareersStore.js";
 import {CareerItem} from "../../../components/CareerItem.jsx";
-import Spinner from "../../../components/Spinner.jsx";
+
 
 export const Careers = () => {
-    const getCareers = useCareersStore((state) => state.getCareers);
+
     const careers = useCareersStore((state) => state.careers);
 
 
-    useEffect(() => {
-        getCareers();
-    }, []);
+
 
     return (
         <div className="w-4/5 mx-auto ">

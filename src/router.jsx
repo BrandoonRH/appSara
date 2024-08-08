@@ -13,6 +13,7 @@ import {CreateCareer} from "./views/admin/careers/CreateCareer.jsx";
 import { RegisterVisit } from './views/admin/visits/RegisterVisit.jsx';
 import {Contact} from "./views/home/Contact.jsx";
 import {Support} from "./views/home/Support.jsx";
+import { RegisterStudent } from './views/admin/students/RegisterStudent.jsx';
 
 
 const router = createBrowserRouter([
@@ -59,7 +60,7 @@ const router = createBrowserRouter([
             },
             {
                 path: '/admin/students/register',
-                element: <RegisterVisit/>
+                element: <RegisterStudent/>
             },
             {
                 path: '/admin/careers',

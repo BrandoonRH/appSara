@@ -16,7 +16,7 @@ useEffect(() => {
 
 
     return (
-        <div className="w-4/5 mx-auto bg-gray-300">
+        <div className="w-4/5 mx-auto ">
             <h1 className="text-center text-3xl font-extrabold">Estudiantes Registrados</h1>
 
             <Link to="/"
@@ -32,6 +32,14 @@ useEffect(() => {
                     />
                 ))}
             </div>
+
+          <div className="mx-auto w-1/6">
+            <Link to="/admin/students/register"
+                    className="p-2 bg-gray-400  hover:bg-gray-500 transition-all hover:text-white font-bold rounded-lg mt-5 inline-block "
+                >
+                    Registrar Estudiante
+                </Link>
+          </div>
 
 
         </div>

@@ -24,7 +24,7 @@ export const CareerItem = ({career}) => {
         });
     }
     return (
-        <div className="m-2 p-3 flex justify-between items-center">
+        <div className="m-2 p-3 flex justify-between items-center hover:bg-gray-300 transition-all duration-300">
             <p><span className="font-bold">ID</span>: {career.id}</p>
             <span>{career.name}</span>
             <Button variant="outlined" color="error"
@@ -32,8 +32,6 @@ export const CareerItem = ({career}) => {
             >
                 <TrashIcon  />
             </Button>
-
-
         </div>
     )
 }

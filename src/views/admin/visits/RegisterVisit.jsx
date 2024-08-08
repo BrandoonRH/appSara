@@ -13,7 +13,7 @@ import {Link, useNavigate} from "react-router-dom";
 
 export const RegisterVisit = () => {
 
-    const getStudents = useStudentsStore((state) => state.getStudents);
+
     const getCategoriesQuestions = useCategoriesQuestionsStore((state) => state.getCategoriesQuestions);
     const categoriesQuestions = useCategoriesQuestionsStore((state) => state.categoriesQuestions);
     const students = useStudentsStore((state) => state.students);
@@ -28,7 +28,7 @@ export const RegisterVisit = () => {
     const [visitTime, setVisitTime] = useState(new Date().toLocaleTimeString('en-GB').slice(0, 5));
 
     useEffect(() => {
-        getStudents();
+        
         getCategoriesQuestions();
     }, []);
 

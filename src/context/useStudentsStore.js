@@ -1,10 +1,6 @@
 import { create } from "zustand";
 import {supabase} from "../libs/api.js";
 
-
-
-
-
 export const useStudentsStore = create()( (set, get) => ({
 
     students: [],
@@ -17,7 +13,7 @@ export const useStudentsStore = create()( (set, get) => ({
         set({students: students})
 
     },
-    registerStudent: async (name, level, average, id_career, photo_credential) => {
+    registerStudent: async ({name, level, average, id_career, photo_credential}) => {
 
         const { data, error } = await supabase
             .from('students')
@@ -41,7 +37,43 @@ export const useStudentsStore = create()( (set, get) => ({
         const {getStudents} = get()
         getStudents();
         return true
-    }
+    },
+    uploadImage: async (file) => {
+        const fileExt = file.name.split('.').pop();
+        const fileName = `${Date.now()}.${fileExt}`;
+
+        const { data, error } = await supabase
+            .storage
+            .from('ImagesCredentials')
+            .upload(`CredentialsStudents/${fileName}`, file);
+
+        if (error) {
+            return {
+                error: error,
+                statusError: false
+            };
+        }
+        return {
+            statusError: true,
+            dataImage: data,
+            nameImage: fileName
+        };
+
+    },
+    registerQuestions: async (question_1, question_2, question_3, question_4, question_5, question_6, question_7, question_8, question_9, question_10, id_student) => {
+
+        const { data, error } = await supabase
+            .from('student_responses')
+            .insert([
+                { question_1 , question_2 , question_3 , question_4 , question_5 , question_6 , question_7 , question_8 , question_9 , question_10 , id_student },
+            ])
+            .select()
+        if(!data || error){
+            return false
+        }
+        return true
+    },
+
 
 
 }));

@@ -1,8 +1,19 @@
 import {Link} from "react-router-dom";
 import {ArrowIcon} from "../../components/ArrowIcon.jsx";
+import {useEffect} from "react";
+import {useCareersStore} from "../../context/useCareersStore.js";
+import {useStudentsStore} from "../../context/useStudentsStore.js";
 
 
 export const Home = () => {
+
+    const getCareers = useCareersStore((state) => state.getCareers);
+    const getStudents = useStudentsStore((state) => state.getStudents);
+
+    useEffect(() => {
+        getCareers();
+        getStudents();
+    }, []);
 
     return (
         <div className=" mx-auto w-3/6 grid grid-cols-2 bg-gray-500 text-white mt-32 m-2 p-5 rounded-2xl gap-10 ">

@@ -55,7 +55,7 @@ export const Login = () => {
                                    className="mt-2 w-full p-3 bg-gray-100"/>
                         </div>
 
-                        <input type="submit" value="Crear Cuenta"
+                        <input type="submit" value="Iniciar Sesión"
                                className="rounded-md bg-indigo-600 hover:bg-indigo-800 text-white w-full mt-5 p-3 uppercase font-bold cursor-pointer"/>
                     </form>
                     <nav className="mt-5">
