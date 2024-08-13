@@ -32,6 +32,7 @@ export const RegisterStudent = () => {
     };
     const handlePhotoChange = async (event) => {
         const response = await uploadImage(event.target.files[0]);
+        //console.log(response);
 
         setPhotoUrl(response.dataImage.fullPath)
         setPhotoName(response.nameImage)
@@ -42,9 +43,9 @@ export const RegisterStudent = () => {
         const data = {
             name: nameRef.current.value,
             level: Number(levelRef.current.value),
-            avergate: Number(averageRef.current.value),
+            average: Number(averageRef.current.value),
             id_career: idCareer,
-            photo_credential: photoName
+            photo_credential: photoName,
         }
 
         const response = await registerStudent(data);
@@ -132,7 +133,7 @@ export const RegisterStudent = () => {
 
 
                         <input type="submit" value="Registrar Estudiante"
-                               className="rounded-md bg-indigo-600 hover:bg-indigo-800 text-white w-full mt-5 p-3 uppercase font-bold cursor-pointer"/>
+                               className="rounded-md bg-indigo-600 hover:bg-indigo-800 text-white w-full mt-2 mb-10 p-3 uppercase font-bold cursor-pointer"/>
                     </form>
 
                 </div>

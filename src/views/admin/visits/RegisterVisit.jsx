@@ -166,7 +166,7 @@ export const RegisterVisit = () => {
                 </div>
 
                 <input type="submit" value="Registrar Visita"
-                       className="rounded-md bg-indigo-600 hover:bg-indigo-800 text-white w-full mt-5 p-3 uppercase font-bold cursor-pointer"/>
+                       className="rounded-md bg-indigo-600 hover:bg-indigo-800 text-white w-full mt-5 mb-10 p-3 uppercase font-bold cursor-pointer"/>
             </form>
         </div>
     );

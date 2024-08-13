@@ -14,6 +14,7 @@ import { RegisterVisit } from './views/admin/visits/RegisterVisit.jsx';
 import {Contact} from "./views/home/Contact.jsx";
 import {Support} from "./views/home/Support.jsx";
 import { RegisterStudent } from './views/admin/students/RegisterStudent.jsx';
+import {QuestionsStudentsList} from "./views/admin/questions/QuestionsStudentsList.jsx";
 
 
 const router = createBrowserRouter([
@@ -72,6 +73,10 @@ const router = createBrowserRouter([
             },
             {
                 path: '/admin/questions',
+                element: <QuestionsStudentsList/>
+            },
+            {
+                path: '/admin/questions/register',
                 element: <Questions/>
             },
             {

@@ -152,16 +152,16 @@ export const Visits = () => {
                 >
                     Registrar Visita
                 </Link>
-                <button
+                {visits.length > 0 ?? <button
                     onClick={downloadPDF}
                     className="p-3 bg-blue-500 hover:bg-blue-600 transition-all hover:text-white font-bold rounded-lg inline-block"
                 >
                     Descargar PDF
-                </button>
+                </button>}
             </div>
             {loading ? (
-                <Spinner text="Loading..." />
-            ) : (
+                <Spinner text="Loading..."/>
+            ) : visits.length > 0 ?  (
                 <div ref={pdfContentRef} className="w-4/6 mx-auto">
                     <h1 className="text-3xl font-bold mt-5">Visitas en el departamento</h1>
                     <div className="mt-3 bg-white shadow-lg mb-5 max-h-96 rounded-xl overflow-y-scroll">
@@ -181,6 +181,8 @@ export const Visits = () => {
                         </div>
                     </div>
                 </div>
+            ) : (
+                <h1 className="text-3xl font-bold mt-5 text-center">No hay Visitas Registradas Aún</h1>
             )}
         </div>
     );

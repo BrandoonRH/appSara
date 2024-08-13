@@ -24,13 +24,18 @@ useEffect(() => {
             >
                 Volver
             </Link>
-            <div className="mt-3 bg-white shadow-lg mb-5 max-h-96 overflow-y-scroll">
-                {students?.map((student) => (
-                    <StudentItem
-                        key={student.id}
-                        student={student}
-                    />
-                ))}
+            <div className="mt-3 bg-white shadow-lg rounded-xl p-3 mb-5 max-h-96 overflow-y-scroll">
+                {students.length > 0 ? (
+                    students?.map((student) => (
+                        <StudentItem
+                            key={student.id}
+                            student={student}
+                        />
+                    ))
+                ) : (
+                    <p className="text-center font-bold">No hay Estudiantes Registrados</p>
+                )}
+
             </div>
 
           <div className="mx-auto w-1/6">

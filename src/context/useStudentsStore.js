@@ -4,6 +4,7 @@ import {supabase} from "../libs/api.js";
 export const useStudentsStore = create()( (set, get) => ({
 
     students: [],
+    studentsResponses: [],
 
     getStudents: async () => {
 
@@ -27,6 +28,7 @@ export const useStudentsStore = create()( (set, get) => ({
         return true
     },
     deleteStudent: async (id) => {
+        //console.log(id)
         const { error } = await supabase
             .from('students')
             .delete()
@@ -74,6 +76,29 @@ export const useStudentsStore = create()( (set, get) => ({
         return true
     },
 
+    getQuestionsStudents: async ()  => {
 
+        let { data: student_responses, error } = await supabase
+            .from('student_responses')
+            .select(`
+                id,     
+                id_student,
+                question_1,              
+                question_10,          
+                question_2,           
+                question_3,             
+                question_4,              
+                question_5,              
+                question_6,              
+                question_7,            
+                question_8,                
+                question_9,
+                students (
+                        id,
+                        name
+                )
+            `)
+            set({studentsResponses: student_responses})
+    }
 
 }));

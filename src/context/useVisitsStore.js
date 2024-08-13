@@ -9,7 +9,7 @@ export const useVisitsStore = create()( (set, get) => ({
         let { data: visits_questions, error } = await supabase
             .from('visits_questions')
             .select(`
-                       id,
+                      id,
                       id_student,
                       id_categorie_question,
                       questions_students,
