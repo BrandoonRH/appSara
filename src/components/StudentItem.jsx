@@ -26,7 +26,7 @@ export const StudentItem = ({student}) => {
             }
         });
     }
-
+console.log(student)
     return (
         <div className="m-2 p-3 flex justify-between items-center hover:bg-gray-300 transition-all duration-300">
             <img
@@ -37,13 +37,14 @@ export const StudentItem = ({student}) => {
 
             <h3 className="text-xl font-semibold">{student.name}</h3>
 
-            <p>Semestre: {student.level}</p>
-            <p>Promedio: {student.average}</p>
+            <p className="font-bold">Semestre: <span className="font-normal">{student.level}</span></p>
+            <p className="font-bold">Promedio: <span className="font-normal">{student.average}</span></p>
+            <p className="font-bold">Carrera: <span className="font-normal">{student.careers.name}</span></p>
 
             <Button variant="outlined" color="error"
-                onClick={() => handleDeleteStudent(student.id)}
+                    onClick={() => handleDeleteStudent(student.id)}
             >
-                <TrashIcon  />
+                <TrashIcon/>
             </Button>
 
         </div>

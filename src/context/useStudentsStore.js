@@ -10,7 +10,17 @@ export const useStudentsStore = create()( (set, get) => ({
 
         const { data: students, error } = await supabase
             .from('students')
-            .select('id, name, level, average, photo_credential, id_career')
+            .select(`
+                                id, 
+                                name, 
+                                level, 
+                                average, 
+                                photo_credential, 
+                                id_career,
+                                careers (
+                                    name
+                                )
+                                `)
         set({students: students})
 
     },

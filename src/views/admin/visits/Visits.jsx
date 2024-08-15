@@ -152,12 +152,12 @@ export const Visits = () => {
                 >
                     Registrar Visita
                 </Link>
-                {visits.length > 0 ?? <button
+              <button
                     onClick={downloadPDF}
                     className="p-3 bg-blue-500 hover:bg-blue-600 transition-all hover:text-white font-bold rounded-lg inline-block"
                 >
                     Descargar PDF
-                </button>}
+                </button>
             </div>
             {loading ? (
                 <Spinner text="Loading..."/>

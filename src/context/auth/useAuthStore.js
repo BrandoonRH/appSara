@@ -25,6 +25,8 @@ export const useAuthStore = create()( (set, get) => ({
 
     },
     logout: async () => {
+        localStorage.clear(); // Borra todo el contenido de localStorage
+        return true;
 
     },
     register: async (email, password) => {
