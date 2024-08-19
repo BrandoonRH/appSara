@@ -24,6 +24,35 @@ export const useStudentsStore = create()( (set, get) => ({
         set({students: students})
 
     },
+    getStudentsForCareer: async (idCareer) => {
+        const { data: students, error } = await supabase
+            .from('students')
+            .select(`
+                                id, 
+                                name, 
+                                level, 
+                                average, 
+                                photo_credential, 
+                                id_career,
+                                careers (
+                                    name
+                                )
+                                `)
+            .eq('id_career', idCareer)
+        set({students: students})
+    },
+    getStudentById: async (id) => {
+
+        let { data: student, error } = await supabase
+            .from('students')
+            .select("*")
+            // Filters
+            .eq('id', id);
+
+        if(student && !error){
+            return student[0]
+        }
+    },
     registerStudent: async ({name, level, average, id_career, photo_credential}) => {
 
         const { data, error } = await supabase
@@ -36,6 +65,19 @@ export const useStudentsStore = create()( (set, get) => ({
             return false
         }
         return true
+    },
+    updateStudent: async (id, {name, level, average, id_career, photo_credential}) => {
+
+        const { data, error } = await supabase
+            .from('students')
+            .update({ name: name, level: level, average: average, id_career: id_career, photo_credential: photo_credential})
+            .eq('id', id)
+            .select()
+        if(!data || error){
+            return false
+        }
+        return true
+
     },
     deleteStudent: async (id) => {
         //console.log(id)

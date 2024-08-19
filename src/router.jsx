@@ -14,6 +14,7 @@ import { RegisterVisit } from './views/admin/visits/RegisterVisit.jsx';
 import {Contact} from "./views/home/Contact.jsx";
 import {Support} from "./views/home/Support.jsx";
 import { RegisterStudent } from './views/admin/students/RegisterStudent.jsx';
+import { EditStudent } from './views/admin/students/EditStudent.jsx';
 import {QuestionsStudentsList} from "./views/admin/questions/QuestionsStudentsList.jsx";
 
 
@@ -62,6 +63,10 @@ const router = createBrowserRouter([
             {
                 path: '/admin/students/register',
                 element: <RegisterStudent/>
+            },
+            {
+                path: '/admin/students/edit/:id',
+                element: <EditStudent/>
             },
             {
                 path: '/admin/careers',

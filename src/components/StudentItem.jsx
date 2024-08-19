@@ -1,7 +1,10 @@
+
 import {TrashIcon} from "./TrashIcon.jsx";
+import { EditIcon } from "./EditIcon.jsx";
 import {Button} from "@mui/material";
 import {useStudentsStore} from "../context/useStudentsStore.js";
 import Swal from "sweetalert2";
+import {Link} from "react-router-dom";
 
 
 export const StudentItem = ({student}) => {
@@ -26,7 +29,7 @@ export const StudentItem = ({student}) => {
             }
         });
     }
-console.log(student)
+
     return (
         <div className="m-2 p-3 flex justify-between items-center hover:bg-gray-300 transition-all duration-300">
             <img
@@ -41,11 +44,16 @@ console.log(student)
             <p className="font-bold">Promedio: <span className="font-normal">{student.average}</span></p>
             <p className="font-bold">Carrera: <span className="font-normal">{student.careers.name}</span></p>
 
-            <Button variant="outlined" color="error"
-                    onClick={() => handleDeleteStudent(student.id)}
-            >
-                <TrashIcon/>
-            </Button>
+           <div className="flex justify-center gap-2 items-center">
+                <Button variant="outlined" color="error"
+                            onClick={() => handleDeleteStudent(student.id)}
+                    >
+                        <TrashIcon/>
+                </Button>
+               <Link to={`/admin/students/edit/${student.id}`} className=" hover:text-gray-700">
+                   <EditIcon/>
+               </Link>
+           </div>
 
         </div>
     )

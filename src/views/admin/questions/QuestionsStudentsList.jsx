@@ -9,7 +9,6 @@ export const QuestionsStudentsList = () => {
 
     const getQuestionsStudents = useStudentsStore((state) => state.getQuestionsStudents);
     const studentsResponses = useStudentsStore((state) => state.studentsResponses);
-    console.log(studentsResponses)
 
 
     useEffect(() => {
